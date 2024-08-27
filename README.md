@@ -7,3 +7,6 @@ VenomToolNitro est un script Bash qui affiche un message de bienvenue avec un de
 1. **Cloner le Dépôt** :
    ```bash
    git clone https://github.com/username/venomtoolnitro.git
+   cd Nitro-gen-tool
+   chmod +x venomtoolnitro.sh
+   ./venomtoolnitro.sh
