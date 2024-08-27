@@ -1,6 +1,6 @@
 # VenomToolNitro
 
-VenomToolNitro est un script Bash qui affiche un message de bienvenue avec un dessin ASCII et des informations de contact.
+VenomToolNitro est un script Bash qui affiche un message de bienvenue avec un dessin ASCII et des informations de contact. Ainsi qu'un générateur et checker nitro
 
 ## Installation
 
