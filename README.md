@@ -1,2 +1,9 @@
-# Nitro-gen-tool
-Ce nitro gen tool consiste enfaite a générer et en même temps checker des nitro gift aléatoire. Je vous invite a essayer et si cela vous plais je vous invite a me dm sur telegram pour d'autres propositions @amxshop1
+# VenomToolNitro
+
+VenomToolNitro est un script Bash qui affiche un message de bienvenue avec un dessin ASCII et des informations de contact.
+
+## Installation
+
+1. **Cloner le Dépôt** :
+   ```bash
+   git clone https://github.com/username/venomtoolnitro.git
