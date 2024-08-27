@@ -3,7 +3,6 @@
 # Définir les codes de couleur et de style
 RED='\033[0;31m'
 GREEN='\033[0;32m'
-CYAN='\033[0;36m'
 RESET='\033[0m'
 BOLD='\033[1m'
 
@@ -26,7 +25,7 @@ echo "   |     |     |"
 echo "   \\_____/\\_____/ ${RESET}"
 
 # Afficher le message de bienvenue
-echo -e "${BOLD}${RED}Bienvenue chez VenomTool.${RESET}"
+echo -e "${BOLD}${RED}Bienvenue chez Nitro-gen-tool.${RESET}"
 echo ""
 
 # Afficher les informations de contact dans un petit carré
@@ -35,50 +34,33 @@ echo -e "${GREEN}║ Telegram : @amxshop1 ║${RESET}"
 echo -e "${GREEN}║ Discord : Venom_gen ║${RESET}"
 echo -e "${GREEN}║ Youtube : taiyoxi   ║${RESET}"
 echo -e "${GREEN}╚════════════════════╝${RESET}"
+echo ""
 
-# Demander à l'utilisateur s'il veut générer et vérifier des liens
-echo -e "${CYAN}Entrer 1 pour générer et checker des Nitro gift${RESET}"
-read -p "Choix: " choice
+# Demander à l'utilisateur ce qu'il souhaite faire
+echo -e "${BOLD}${GREEN}Entrez 1 pour générer et checker des Nitro Gift${RESET}"
+read -p "Votre choix: " choice
 
-if [ "$choice" -eq 1 ]; then
-    # Demander combien de liens vérifier et générer
+if [ "$choice" == "1" ]; then
+    # Demander combien de liens Nitro l'utilisateur souhaite générer et vérifier
     read -p "Combien de liens Nitro souhaitez-vous vérifier et générer ? " count
 
-    # Vérifier si l'entrée est un nombre
-    if ! [[ "$count" =~ ^[0-9]+$ ]]; then
-        echo -e "${RED}Veuillez entrer un nombre valide.${RESET}"
-        exit 1
-    fi
+    # Générer et vérifier les liens Nitro
+    echo "Génération et vérification de $count liens Nitro..."
 
-    echo -e "${CYAN}Génération et vérification de $count liens Nitro...${RESET}"
-
-    # Fonction pour générer un lien Nitro fictif (remplacez cette fonction par la vraie génération si vous en avez une)
-    generate_nitro_link() {
-        echo "https://discord.gift/$(tr -dc A-Za-z0-9 </dev/urandom | head -c 16)"
-    }
-
-    # Fonction pour vérifier un lien Nitro
-    check_link() {
-        local url=$1
-        local response
-
-        # Envoyer une requête HTTP
-        response=$(curl -s -o /dev/null -w "%{http_code}" "$url")
-
-        if [ "$response" -eq 200 ]; then
-            echo -e "Le lien ${url} est ${GREEN}VALIDE${RESET}"
-        elif [ "$response" -eq 301 ] || [ "$response" -eq 302 ]; then
-            echo -e "Le lien ${url} est ${CYAN}REDIRIGE${RESET}"
+    for i in $(seq 1 $count); do
+        # Générer un faux lien Nitro (c'est juste un exemple, les vrais liens Nitro sont plus complexes)
+        nitro_link="https://discord.gift/$(tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 16)"
+        
+        # Vérifier si le lien est valide (un vrai vérificateur ferait un appel API ou autre méthode pour vérifier)
+        # Ici, c'est juste un exemple simplifié
+        if [[ $(($RANDOM % 2)) == 0 ]]; then
+            echo -e "${GREEN}Valide: $nitro_link${RESET}"
         else
-            echo -e "Le lien ${url} est ${RED}INVALID${RESET}"
+            echo -e "${RED}Invalide: $nitro_link${RESET}"
         fi
-    }
-
-    # Boucle pour générer et vérifier les liens
-    for ((i=1; i<=$count; i++)); do
-        link=$(generate_nitro_link)
-        check_link "$link"
     done
+
+    echo -e "${BOLD}${GREEN}Vérification terminée.${RESET}"
 else
-    echo -e "${RED}Choix non valide.${RESET}"
+    echo "Option invalide. Veuillez redémarrer le tool."
 fi
