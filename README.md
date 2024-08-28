@@ -6,7 +6,7 @@ cree par venomgen.
 
 1. **Cloner le Dépôt** :
    ```bash
-   git clone https://github.com/username/venomtoolnitro.git
+   git clone https://github.com/Venomgen/Nitro-gen-tool.git
    
    cd Nitro-gen-tool
 
